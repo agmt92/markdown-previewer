@@ -1,0 +1,159 @@
+// index.scss
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Define dark mode colors
+$body-bg: #121212;
+$text-color: #e0e0e0;
+$input-bg: #27232d; 
+$input-border: #333;
+$input-color: #e0e0e0;
+$window-bg: #1e1e1e;
+$inner-bg: #414141;
+$pre-bg: #17004a27;
+$window-border: #3c3c3c;
+$window-gradient: radial-gradient( #432e4f, #250c41);
+
+// Define additional colors
+$code-bg: #6464648e;
+$code-color: rgb(239, 119, 239);
+$table-border: #444;
+$table-cell-bg: #2e2e2e;
+$scrollbar-bg: #2a2a2a;
+$scrollbar-thumb: #555;
+$scrollbar-thumb-hover: #777;
+
+// Apply dark mode styles
+body {
+  background-color: $body-bg;
+  color: $code-color;
+  height: 100vh;
+}
+
+strong {
+  background-color: $pre-bg;
+}
+
+pre {
+  background-color: $pre-bg;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: all 0.5s ease; 
+}
+
+.window {
+  border: 1px solid $window-border;
+  padding-top: 30px;
+  margin: 20px;
+  border-radius: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: $input-bg;
+  box-shadow: 5px 5px 10px #0d0d0d, -5px -5px 10px #2f2f2f;
+  height: 50%;
+}
+
+.window-title {
+  margin-top: -20px;
+  margin-left: 15px;
+  color: $text-color;
+  font-size: 1.2em;
+  text-align: left;
+  color: silver;
+  font-weight: bolder;
+}
+
+#editor {
+  background-color: $inner-bg;
+  border: 1px solid $input-border;
+  color: $input-color;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 5px;
+  flex: 1;
+  flex-direction: row;
+}
+
+#preview {
+  background-color: $inner-bg;
+  border: 1px solid $input-border;
+  padding: 25px;
+  margin-top: 20px;
+  color: $text-color;
+  flex: 1;
+  flex-direction: row-reverse;
+  text-align: left;
+  overflow-y: auto;
+  overflow-x: scroll;
+}
+
+.toggle-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -20px;
+    padding-bottom: 0;
+    cursor: default !important;
+    background-color: rgb(2, 193, 2); 
+    border: none;
+    transition: background-color;
+    &:active {
+        background-color: rgb(0, 75, 0); 
+    }
+    align-self: flex-end; 
+}
+
+.full-page .toggle-btn {
+  background-color: rgb(255, 136, 0); 
+  &:active {
+    background-color: rgb(155, 85, 0); 
+  }
+}
+
+.side-by-side .window {
+  flex: 1 1 50%;
+  transition: flex 1s ease;
+}
+
+.full-page .window {
+  flex: 1 1 100%;
+  transition: flex 1s ease;
+}
+
+// Table styles
+table {
+  border: 1px solid $table-border;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid $table-border;
+  background-color: $table-cell-bg;
+  padding: 10px;
+}
+
+// Scrollbar styles
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $scrollbar-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb;
+  border-radius: 10px;
+  border: 3px solid $scrollbar-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $scrollbar-thumb-hover;
+}
